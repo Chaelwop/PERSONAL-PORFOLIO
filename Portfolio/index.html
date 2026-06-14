@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vera Cruz, Michael C. — Full-Stack Developer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- AOS Animate on Scroll -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════ LOADER ═══════════════════════════════ -->
+  <div id="loader" class="loader">
+    <div class="loader__inner">
+      <div class="loader__ring"></div>
+      <span class="loader__text mono">Initializing...</span>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════ SCROLL PROGRESS ════════════════════════ -->
+  <div id="scroll-progress" class="scroll-progress"></div>
+
+  <!-- ═══════════════════════════════ NAVBAR ════════════════════════════════ -->
+  <nav id="navbar" class="navbar">
+    <div class="nav__container">
+      <a href="#home" class="nav__logo">
+        <span class="logo-bracket">&lt;</span>VMC<span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#home" class="nav__link active">Home</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#experience" class="nav__link">Experience</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-sun" id="theme-icon"></i>
+        </button>
+        <a href="#" class="btn btn--outline btn--sm">Download CV <i class="fas fa-download"></i></a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════ HERO ═════════════════════════════════ -->
+  <section id="home" class="hero">
+    <canvas id="hero-canvas" class="hero__canvas"></canvas>
+    <div class="hero__content">
+      <p class="hero__eyebrow mono" data-aos="fade-down" data-aos-duration="600">Hello, world. I'm</p>
+      <h1 class="hero__name" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+        Vera Cruz, Michael C.
+      </h1>
+      <div class="hero__role" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+        <span id="typewriter"></span><span class="cursor">|</span>
+      </div>
+      <p class="hero__intro" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+        I craft fast, accessible, and beautiful digital products — from pixel-perfect interfaces to robust backend systems that scale.
+      </p>
+      <div class="hero__ctas" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+        <a href="#projects" class="btn btn--primary">View Projects <i class="fas fa-arrow-right"></i></a>
+        <a href="#contact" class="btn btn--ghost">Contact Me</a>
+      </div>
+      <div class="hero__stats" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+        <div class="stat">
+          <span class="stat__num">2+</span>
+          <span class="stat__label">Years Experience</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num">20+</span>
+          <span class="stat__label">Projects Delivered</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num">15+</span>
+          <span class="stat__label">Happy Clients</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll-hint">
+      <span class="mono">scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ ABOUT ════════════════════════════════ -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="section__header" data-aos="fade-up">
+        <span class="section__tag mono">01 — About</span>
+        <h2 class="section__title">Who I Am</h2>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__image-wrap" data-aos="fade-right" data-aos-duration="900">
+          <div class="about__image-frame">
+            <div class="about__avatar">
+             <div class="about__avatar">
+                <img src="Picture/Profile.jpeg" alt="Profile Image" style="width:100%;height:100%;object-fit:cover;" />
+              </div>
+                <defs>
+                  <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:var(--accent-amber)" />
+                    <stop offset="100%" style="stop-color:var(--accent-violet)" />
+                  </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="100" fill="var(--surface-2)" />
+                <circle cx="100" cy="82" r="36" fill="url(#avatarGrad)" opacity="0.9"/>
+                <ellipse cx="100" cy="165" rx="56" ry="45" fill="url(#avatarGrad)" opacity="0.85"/>
+                <text x="100" y="100" text-anchor="middle" fill="white" font-size="52" font-family="Space Grotesk" font-weight="700" dy=".35em">VC</text>
+              </svg>
+            </div>
+            <div class="about__badge">
+              <br><i class="fas fa-circle-check"></i> Verified Developer
+            </div>
+          </div>
+        </div>
+
+        <div class="about__content" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+          <h3 class="about__greeting">Nice to meet you.</h3>
+          <p class="about__bio">
+            I am a student at Cebu Eastern College in Cebu City, Philippines, with a strong interest in how websites and web applications are built. My journey started with curiosity about how the internet works and has grown into a passion for learning full-stack development and creating my own web projects.
+          </p>
+          <p class="about__bio">
+            When I'm not pushing pixels or debugging APIs, you'll find me contributing to open-source projects, writing on my tech blog, or hiking somewhere with terrible cell service — which I consider a feature, not a bug.
+          </p>
+
+          <div class="about__chips">
+            <span class="chip"><i class="fas fa-map-marker-alt"></i>Cebu City, Philippines</span>
+            <span class="chip"><i class="fas fa-graduation-cap"></i>Cebu Eastern College</span>
+          </div>
+
+          <a href="#contact" class="btn btn--primary">Let's Talk <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ SKILLS ════════════════════════════════ -->
+  <section id="skills" class="section skills">
+    <div class="container">
+      <div class="section__header" data-aos="fade-up">
+        <span class="section__tag mono">02 — Skills</span>
+        <h2 class="section__title">What I Work With</h2>
+      </div>
+
+      <div class="skills__categories" data-aos="fade-up" data-aos-delay="100">
+        <div class="skill-card glass">
+          <div class="skill-card__icon"><i class="fas fa-palette"></i></div>
+          <h3 class="skill-card__title">Frontend</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-item__header"><span>React / Next.js</span><span>95%</span></div>
+              <div class="skill-bar"><div class="skill-bar__fill" data-width="95"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header"><span>TypeScript</span><span>90%</span></div>
+              <div class="skill-bar"><div class="skill-bar__fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header"><span>CSS / Tailwind</span><span>92%</span></div>
+              <div class="skill-bar"><div class="skill-bar__fill" data-width="92"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header"><span>Vue.js</span><span>78%</span></div>
+              <div class="skill-bar"><div class="skill-bar__fill" data-width="78"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card glass" data-aos="fade-up" data-aos-delay="150">
+          <div class="skill-card__icon"><i class="fas fa-server"></i></div>
+          <h3 class="skill-card__title">Backend</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-item__header"><span>Node.js / Express</span><span>90%</span></div>
+              <div class="skill-bar"><div class="skill-bar__fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header"><span>Python / FastAPI</span><span>85%</span></div>
+              <div class="skill-bar"><div class="skill-bar__fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header"><span>PostgreSQL / MongoDB</span><span>82%</span></div>
+              <div class="skill-bar"><div class="skill-bar__fill" data-width="82"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header"><span>GraphQL</span><span>75%</span></div>
+              <div class="skill-bar"><div class="skill-bar__fill" data-width="75"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card glass" data-aos="fade-up" data-aos-delay="200">
+          <div class="skill-card__icon"><i class="fas fa-wrench"></i></div>
+          <h3 class="skill-card__title">Tools & Cloud</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-item__header"><span>AWS / GCP</span><span>80%</span></div>
+              <div class="skill-bar"><div class="skill-bar__fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header"><span>Docker / Kubernetes</span><span>76%</span></div>
+              <div class="skill-bar"><div class="skill-bar__fill" data-width="76"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header"><span>Git / CI/CD</span><span>93%</span></div>
+              <div class="skill-bar"><div class="skill-bar__fill" data-width="93"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header"><span>Figma / Design</span><span>70%</span></div>
+              <div class="skill-bar"><div class="skill-bar__fill" data-width="70"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech icon cloud -->
+      <div class="tech-icons" data-aos="fade-up" data-aos-delay="200">
+        <div class="tech-icon" title="React"><i class="fab fa-react"></i></div>
+        <div class="tech-icon" title="Node.js"><i class="fab fa-node-js"></i></div>
+        <div class="tech-icon" title="Python"><i class="fab fa-python"></i></div>
+        <div class="tech-icon" title="Git"><i class="fab fa-git-alt"></i></div>
+        <div class="tech-icon" title="JavaScript"><i class="fab fa-js-square"></i></div>
+        <div class="tech-icon" title="Linux"><i class="fab fa-linux"></i></div>
+        <div class="tech-icon" title="GitHub"><i class="fab fa-github"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════ PROJECTS ════════════════════════════════ -->
+  <section id="projects" class="section projects">
+    <div class="container">
+      <div class="section__header" data-aos="fade-up">
+        <span class="section__tag mono">03 — Projects</span>
+        <h2 class="section__title">Things I've Built</h2>
+      </div>
+
+      <!-- Filter buttons -->
+      <div class="project-filters" data-aos="fade-up" data-aos-delay="100">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="app">App</button>
+        <button class="filter-btn" data-filter="ui">UI Design</button>
+      </div>
+
+      <div class="projects__grid" id="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card glass" data-category="web" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-card__preview">
+            <div class="preview-placeholder preview-placeholder--blue">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="project-card__overlay">
+              <a href="#" class="overlay-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="#" class="overlay-btn overlay-btn--ghost"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__meta">
+              <span class="project-category">Web App</span>
+            </div>
+            <h3 class="project-card__title">FinanceFlow Dashboard</h3>
+            <p class="project-card__desc">A real-time financial analytics platform with interactive charts, portfolio tracking, and AI-powered insights for retail investors.</p>
+            <div class="project-card__stack">
+              <span class="tag">React</span>
+              <span class="tag">D3.js</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card glass" data-category="app" data-aos="fade-up" data-aos-delay="150">
+          <div class="project-card__preview">
+            <div class="preview-placeholder preview-placeholder--amber">
+              <i class="fas fa-tasks"></i>
+            </div>
+            <div class="project-card__overlay">
+              <a href="#" class="overlay-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="#" class="overlay-btn overlay-btn--ghost"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__meta">
+              <span class="project-category">Full-Stack App</span>
+            </div>
+            <h3 class="project-card__title">Nexus Project Manager</h3>
+            <p class="project-card__desc">A collaborative project management app with real-time updates, kanban boards, Gantt charts, and Slack integration for remote teams.</p>
+            <div class="project-card__stack">
+              <span class="tag">Next.js</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Socket.io</span>
+              <span class="tag">MongoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card glass" data-category="ui" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-card__preview">
+            <div class="preview-placeholder preview-placeholder--violet">
+              <i class="fas fa-shopping-bag"></i>
+            </div>
+            <div class="project-card__overlay">
+              <a href="#" class="overlay-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="#" class="overlay-btn overlay-btn--ghost"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__meta">
+              <span class="project-category">UI Design + Dev</span>
+            </div>
+            <h3 class="project-card__title">Lumina E-Commerce</h3>
+            <p class="project-card__desc">A luxury fashion storefront with a cinematic product experience, 3D model viewer, and a frictionless checkout powered by Stripe.</p>
+            <div class="project-card__stack">
+              <span class="tag">Vue.js</span>
+              <span class="tag">Three.js</span>
+              <span class="tag">Stripe</span>
+              <span class="tag">Figma</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card glass" data-category="web" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-card__preview">
+            <div class="preview-placeholder preview-placeholder--green">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="project-card__overlay">
+              <a href="#" class="overlay-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="#" class="overlay-btn overlay-btn--ghost"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__meta">
+              <span class="project-category">AI / Web</span>
+            </div>
+            <h3 class="project-card__title">DocuMind AI</h3>
+            <p class="project-card__desc">An AI-powered document assistant that lets users chat with their PDFs, extract key data, and auto-generate summaries using GPT-4.</p>
+            <div class="project-card__stack">
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">OpenAI</span>
+              <span class="tag">React</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card glass" data-category="app" data-aos="fade-up" data-aos-delay="150">
+          <div class="project-card__preview">
+            <div class="preview-placeholder preview-placeholder--rose">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <div class="project-card__overlay">
+              <a href="#" class="overlay-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="#" class="overlay-btn overlay-btn--ghost"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__meta">
+              <span class="project-category">Mobile-First App</span>
+            </div>
+            <h3 class="project-card__title">PulseTrack Health</h3>
+            <p class="project-card__desc">A wellness dashboard integrating wearable data from Apple Health and Garmin. Beautiful charts, habit tracking, and personalized recommendations.</p>
+            <div class="project-card__stack">
+              <span class="tag">React Native</span>
+              <span class="tag">GraphQL</span>
+              <span class="tag">AWS</span>
+              <span class="tag">HealthKit</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card glass" data-category="ui" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-card__preview">
+            <div class="preview-placeholder preview-placeholder--cyan">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <div class="project-card__overlay">
+              <a href="#" class="overlay-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="#" class="overlay-btn overlay-btn--ghost"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__meta">
+              <span class="project-category">Design System</span>
+            </div>
+            <h3 class="project-card__title">Orbital UI Kit</h3>
+            <p class="project-card__desc">A production-ready component library with 80+ accessible components, dark/light themes, and comprehensive Storybook documentation.</p>
+            <div class="project-card__stack">
+              <span class="tag">Storybook</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Radix UI</span>
+              <span class="tag">Figma</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════ EXPERIENCE ═════════════════════════════ -->
+  <section id="experience" class="section experience">
+    <div class="container">
+      <div class="section__header" data-aos="fade-up">
+        <span class="section__tag mono">04 — Journey</span>
+        <h2 class="section__title">Experience & Education</h2>
+      </div>
+
+      <div class="timeline-wrap">
+        <div class="timeline">
+
+          <!-- Work items -->
+          <div class="timeline__col">
+            <div class="timeline__col-header"><i class="fas fa-briefcase"></i>Experience</div>
+
+            <div class="timeline__item" data-aos="fade-right" data-aos-delay="100">
+              <div class="timeline__dot"></div>
+              <div class="timeline__card glass">
+                <div class="timeline__card-header">
+                  <div>
+                    <h3 class="timeline__role">Student Full Stack Developer.</h3>
+                    <p class="timeline__company">Informatics, Consolacion</p>
+                  </div>
+                  <span class="timeline__date mono">2022 – 2023</span>
+                </div>
+                <p class="timeline__desc">Led development of the Stripe Dashboard's analytics suite. Shipped features used by 1M+ businesses. Reduced page load time by 40% through code splitting and edge caching strategies.</p>
+                <div class="timeline__tags">
+                  <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">PHP</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline__item" data-aos="fade-right" data-aos-delay="150">
+              <div class="timeline__dot"></div>
+              <div class="timeline__card glass">
+                <div class="timeline__card-header">
+                  <div>
+                    <h3 class="timeline__role">Full-Stack Developer</h3>
+                    <p class="timeline__company">Vercel — Remote</p>
+                  </div>
+                  <span class="timeline__date mono">2020 – 2022</span>
+                </div>
+                <p class="timeline__desc">Built and maintained Next.js deployment infrastructure. Contributed to the open-source Next.js framework and developed internal tooling used by the entire engineering org.</p>
+                <div class="timeline__tags">
+                  <span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">AWS</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline__item" data-aos="fade-right" data-aos-delay="200">
+              <div class="timeline__dot"></div>
+              <div class="timeline__card glass">
+                <div class="timeline__card-header">
+                  <div>
+                    <h3 class="timeline__role">Frontend Developer</h3>
+                    <p class="timeline__company">College - Cebu Eastern College</p>
+                  </div>
+                  <span class="timeline__date mono">2025 – 2026</span>
+                </div>
+                <p class="timeline__desc">
+                 My focus is on improving my skills in modern front-end development, including UI/UX design principles, responsive design, and interactive web experiences. I enjoy turning ideas into real, functional websites and continuously learning new technologies to grow as a developer.</p> 
+                <div class="timeline__tags">
+                  <span class="tag">Canvas API</span><span class="tag">WebGL</span><span class="tag">React</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education items -->
+          <div class="timeline__col">
+            <div class="timeline__col-header"><i class="fas fa-graduation-cap"></i> Education</div>
+
+            <div class="timeline__item" data-aos="fade-left" data-aos-delay="100">
+              <div class="timeline__dot timeline__dot--amber"></div>
+              <div class="timeline__card glass">
+                <div class="timeline__card-header">
+                  <div>
+                    <h3 class="timeline__role">TVL - Programming</h3>
+                    <p class="timeline__company">Informatics, Consolacion</p>
+                  </div>
+                  <span class="timeline__date mono">2022 – 2023</span>
+                </div>
+                <p class="timeline__desc">Graduated with Honors. Specialized in Human-Computer Interaction and Distributed Systems. Senior thesis on adaptive UI rendering for low-bandwidth environments.</p>
+                <div class="timeline__tags">
+                  <span class="tag">SQL</span><span class="tag">Java & JavaScript</span><span class="tag">HTML</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline__item" data-aos="fade-left" data-aos-delay="150">
+              <div class="timeline__dot timeline__dot--amber"></div>
+              <div class="timeline__card glass">
+                <div class="timeline__card-header">
+                  <div>
+                    <h3 class="timeline__role">BSIT - Cebu Eastern College</h3>
+                    <p class="timeline__company">2nd Year Student</p>
+                  </div>
+                  <span class="timeline__date mono">2026</span>
+                </div>
+                <p class="timeline__desc">Professional-level certification covering cloud architecture, security, cost optimization, and high-availability infrastructure design on AWS.</p>
+                <div class="timeline__tags">
+                  <span class="tag">Java</span><span class="tag">C#</span><span class="tag">JavaScript</span>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ CONTACT ════════════════════════════════ -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="section__header" data-aos="fade-up">
+        <span class="section__tag mono">05 — Contact</span>
+        <h2 class="section__title">Let's Build Something</h2>
+        <p class="section__subtitle">Have a project in mind or just want to say hello? My inbox is always open.</p>
+      </div>
+
+      <div class="contact__grid">
+        <div class="contact__info" data-aos="fade-right" data-aos-duration="800">
+          <div class="contact__detail">
+            <div class="contact__detail-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <p class="contact__detail-label">Email</p>
+              <a href="mailto:alex@riveradev.io" class="contact__detail-value">Michaelveracruz45@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact__detail">
+            <div class="contact__detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <p class="contact__detail-label">Location</p>
+              <p class="contact__detail-value">Cebu City, Philippines</p>
+            </div>
+          </div>
+          <div class="contact__detail">
+            <div class="contact__detail-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <p class="contact__detail-label">Response Time</p>
+              <p class="contact__detail-value">Within 24 hours</p>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+            <a href="#" class="social-link" aria-label="CodePen"><i class="fab fa-codepen"></i></a>
+          </div>
+        </div>
+
+        <form class="contact__form glass" id="contact-form" novalidate data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" />
+              <span class="form-error" id="name-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" />
+              <span class="form-error" id="email-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Project Inquiry" />
+            <span class="form-error" id="subject-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."></textarea>
+            <span class="form-error" id="message-error"></span>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full" id="submit-btn">
+            <span id="btn-text">Send Message <i class="fas fa-paper-plane"></i></span>
+            <span id="btn-loading" style="display:none;"><i class="fas fa-circle-notch fa-spin"></i> Sending...</span>
+          </button>
+          <div class="form-success" id="form-success" style="display:none;">
+            <i class="fas fa-circle-check"></i> Message sent! I'll get back to you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════ FOOTER ════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy mono">Designed & Built by <span class="accent">Alex Rivera</span> · 2025</p>
+      <a href="#home" class="footer__back-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- AOS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
