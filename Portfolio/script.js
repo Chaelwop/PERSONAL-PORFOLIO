@@ -298,63 +298,61 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ─────────────────────────────────────────
      11. CONTACT FORM VALIDATION
   ───────────────────────────────────────── */
-  const form       = document.getElementById('contact-form');
-  const btnText    = document.getElementById('btn-text');
-  const btnLoading = document.getElementById('btn-loading');
-  const formSuccess = document.getElementById('form-success');
+  const form = document.getElementById('contact-form');
+const btnText = document.getElementById('btn-text');
+const btnLoading = document.getElementById('btn-loading');
+const formSuccess = document.getElementById('form-success');
+const formResult = document.getElementById('form-result');
 
-  function validateField(id, message, testFn) {
-    const field = document.getElementById(id);
-    const error = document.getElementById(`${id}-error`);
-    if (!testFn(field.value.trim())) {
-      field.classList.add('error');
-      error.textContent = message;
-      return false;
-    }
-    field.classList.remove('error');
-    error.textContent = '';
-    return true;
-  }
-
-  // Live validation on blur
-  const fields = ['name', 'email', 'subject', 'message'];
-  fields.forEach(id => {
-    document.getElementById(id)?.addEventListener('blur', () => validateForm(true));
-    document.getElementById(id)?.addEventListener('input', () => {
-      document.getElementById(id).classList.remove('error');
-      document.getElementById(`${id}-error`).textContent = '';
-    });
-  });
-
-  function validateForm(silent = false) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const v1 = validateField('name',    'Please enter your name.',          v => v.length >= 2);
-    const v2 = validateField('email',   'Please enter a valid email.',      v => emailRegex.test(v));
-    const v3 = validateField('subject', 'Please enter a subject.',          v => v.length >= 3);
-    const v4 = validateField('message', 'Please write at least 10 characters.', v => v.length >= 10);
-    return v1 && v2 && v3 && v4;
-  }
-
-  form.addEventListener('submit', async (e) => {
+form.addEventListener('submit', function(e) {
     e.preventDefault();
-    if (!validateForm()) return;
+    
+    // Show loading state, hide standard text
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline-block';
+    formSuccess.style.display = 'none';
 
-    // Simulate async send
-    btnText.style.display    = 'none';
-    btnLoading.style.display = 'inline-flex';
-    form.querySelector('#submit-btn').disabled = true;
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
-    await new Promise(res => setTimeout(res, 1800));
+    formResult.innerHTML = "Sending...";
 
-    btnText.style.display    = 'inline-flex';
-    btnLoading.style.display = 'none';
-    form.querySelector('#submit-btn').disabled = false;
-    formSuccess.style.display = 'flex';
-    form.reset();
-
-    setTimeout(() => { formSuccess.style.display = 'none'; }, 5000);
-  });
-
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: json
+    })
+    .then(async (response) => {
+        let jsonResponse = await response.json();
+        if (response.status === 200) {
+            formResult.innerHTML = "Message sent! I'll get back to you soon.";
+            formSuccess.style.display = 'block';
+            form.reset(); // Clears form inputs after successful send
+        } else {
+            formResult.innerHTML = jsonResponse.message || "Something went wrong.";
+            formSuccess.style.display = 'block';
+        }
+    })
+    .catch(error => {
+        console.log(error);
+        formResult.innerHTML = "Something went wrong! Please try again.";
+        formSuccess.style.display = 'block';
+    })
+    .finally(() => {
+        // Restore button state
+        btnText.style.display = 'inline-block';
+        btnLoading.style.display = 'none';
+        
+        // Hide success alert automatically after 5 seconds
+        setTimeout(() => {
+            formSuccess.style.display = 'none';
+        }, 5000);
+    });
+});
   /* ─────────────────────────────────────────
      12. AOS INIT
   ───────────────────────────────────────── */
